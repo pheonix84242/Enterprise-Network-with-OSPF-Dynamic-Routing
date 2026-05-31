@@ -1,0 +1,22 @@
+enable
+configure terminal
+
+vlan 20
+ name IT
+
+interface range FastEthernet0/1-10
+ switchport mode access
+ switchport access vlan 20
+
+interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 20
+
+interface vlan 20
+ ip address 192.168.20.2 255.255.255.0
+ no shutdown
+
+ip default-gateway 192.168.20.1
+
+end
+write memory
